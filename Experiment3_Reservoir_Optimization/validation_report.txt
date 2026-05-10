@@ -1,0 +1,70 @@
+=================================================================
+RESERVOIR DISPATCH OPTIMIZATION — VALIDATION REPORT
+=================================================================
+Generated: 2026-05-09
+
+PROBLEM PARAMETERS
+----------------------------------------
+  Initial storage V0    :      500,000 m³
+  Min storage V_min     :      100,000 m³
+  Max storage V_max     :    1,000,000 m³
+  Min eco release Q_eco :           10.0 m³/s
+  Max release Q_max     :          100.0 m³/s
+  Hydraulic head H      :           30.0 m
+  Turbine efficiency η  :           0.85
+  K_HYDRO factor        :        250.155 kW/(m³/s)
+
+OPTIMAL RELEASE SCHEDULE
+----------------------------------------
+   Day   Inflow    Release     Storage   Price    Revenue
+     1     15.0    10.6094   879,350    0.08  5,095.66
+     2     12.0    10.6094   999,500    0.08  5,095.66
+     3     10.0    10.0000   999,500    0.08  4,802.98
+     4      8.0    10.0000   826,700    0.08  4,802.98
+     5     12.0    10.0000   999,500    0.10  6,003.72
+     6     15.0    25.4051   100,500    0.12 18,303.01
+     7     18.0    18.0000   100,500    0.10 10,806.70
+
+  TOTAL REVENUE: $54,910.69
+
+CONSTRAINT VERIFICATION
+----------------------------------------
+  Release bounds [Q_eco=10.0, Q_max=100.0] m³/s : PASS ✓
+  Storage bounds [V_min=100000, V_max=1000000] m³  : PASS ✓
+  Mass balance (V_t+1 = V_t + (I-Q)·Δt)        : PASS ✓
+  Ecological violations                          : 0
+  Solution feasible                              : YES ✓
+
+  ✓ All constraints satisfied. Solution is physically valid.
+
+
+ALGORITHM COMPARISON (SLSQP vs L-BFGS-B)
+----------------------------------------
+  SLSQP:
+    Revenue    : $54,910.69
+    Iterations : 9
+    Time       : 24.27 ms
+    Success    : True
+    Note       : Native inequality constraints
+
+  L-BFGS-B:
+    Revenue    : $54,910.69
+    Iterations : 1
+    Time       : 1.39 ms
+    Success    : True
+    Note       : Penalty method for storage bounds (P=1e+10)
+
+UNCERTAINTY ANALYSIS (Monte Carlo, 15% inflow noise)
+----------------------------------------
+  Successful scenarios : 39
+  Mean Revenue         : $51,002.76
+  Std Revenue          : $4,121.36
+
+   Day   Mean Q    Std Q      P10      P90
+     1  10.8732   0.6809  10.3448  11.6764
+     2  10.8491   0.6839  10.3448  11.6887
+     3  10.2310   0.3782  10.0000  10.6442
+     4  10.1571   0.3454  10.0000  10.5828
+     5  10.1733   0.3869  10.0000  10.6179
+     6  21.0231   3.2653  17.4529  25.1173
+     7  15.8626   1.7010  13.9536  18.0000
