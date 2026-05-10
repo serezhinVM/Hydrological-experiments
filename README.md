@@ -1,10 +1,10 @@
 # Hydrological-experiments
 
-Эксперименты и модели в области гидрологии.
+Experiments and models in hydrology
 
 ## Experiments
 
-- **Experiment1_Rainfall_Alert** - анализ осадков и оповещения
-- **Experiment2_SCSCN_Runoff** - моделирование стока методом SCS-CN
-- **Experiment3_Reservoir_Optimization** - оптимизация работы водохранилища
-- **Experiment4_Flood_Inundation** - моделирование затоплений
+- **Experiment1_Rainfall_Alert** - rainfall analysis and alerts
+- **Experiment2_SCSCN_Runoff** - runoff modeling using the SCS-CN method
+- **Experiment3_Reservoir_Optimization** - reservoir operation optimization
+- **Experiment4_Flood_Inundation** - flood inundation modeling
