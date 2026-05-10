@@ -1,0 +1,4 @@
+# Alert Log - Rainfall Alert System
+# Alerts are recorded when Red-level (Heavy) rainfall is detected (>= 20 mm/h)
+# Format: [Timestamp] City: Alert Level - Status (Rainfall: X.XX mm/h)
+
